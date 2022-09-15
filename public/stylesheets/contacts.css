@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+  background-color: white;
+  color: black;
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+form {
+  width: 400px;
+}
+
+p {
+  margin: 4px 0;
+}
+
+h1 {
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 36px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  padding-bottom: 5px;
+}
+
+input {
+  padding: 5px;
+  border: 2px solid purple;
+  border-radius: 5px;
+}
+
+input:focus {
+  border: 3px solid purple;
+}
+
+a {
+  text-decoration: none;
+  border: 2px solid purple;
+  color: black;
+  border-radius: 5px;
+  padding: 3px;
+  margin-right: 3px;
+}
+
+fieldset {
+  border: none;
+  border-radius: 5px;
+}
+
+legend {
+  margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.add {
+  padding: 10px 30px;
+}
+
+.tag {
+  color: blue;
+  border: none;
+  white-space: nowrap;
+}
+
+.tags {
+  margin-bottom: 15px;
+}
+
+.button_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button_wrapper button {
+  background-color: white;
+  border: 2px solid purple;
+  padding: 9px 15px 9px 15px;
+  border-radius: 5px;
+  font-size: 22px;
+  font-family: Helvetica, arial, sans-serif;
+  cursor: pointer;
+}
+
+.contact_item {
+  margin: 20px 25px;
+  word-wrap: break-word;
+  width: 260px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.contact_item_heading {
+  font-weight: bold;
+}
+
+.contact_form_view h2 {
+  margin-bottom: 20px;
+}
+
+.contact_form_view label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.contact_form_view a {
+  padding: 10px 30px;
+}
+
+.contact_form_box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a.add_new_tag {
+  display: block;
+  padding: 7px;
+  margin-top: 15px;
+  width: 90px;
+  margin-bottom: 25px;
+}
+
+.tag_wrapper {
+  display: inline-block;
+}
+
+.new_tags {
+  display: inline-block;
+}
+
+.tag_checkboxes label {
+  margin-right: 15px;
+  margin-bottom: 7px;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+}
+
+#wrapper > header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  color: white;
+  height: 100px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#contacts_view header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 20px;
+}
+
+#contacts_list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+#contact_item {
+  padding: 10px;
+  margin: 10px;
+}
+
+#modal_background {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal_wrapper {
+  max-width: 1000px;
+  height: 100%;
+}
+
+#modal {
+  position: relative;
+  left: 50%;
+  top: 20%;
+  height: 200px;
+  width: 400px;
+  margin-left: -200px;
+  background-color: white;
+  z-index: 5;
+  border-radius: 10px;
+}
+
+#new_tag_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+#modal_background.show {
+  display: block;
+}
+
+#modal_background.hide {
+  display: none;
+}
+
+#modal p {
+  font-size: 20px;
+}
+
+#modal .button_wrapper {
+  width: 70%;
+}
+
+#modal .button_wrapper button {
+  font-size: 17px;
+  padding: 6px 12px 6px 12px;
+}
+
+#add_view_button {
+  padding: 8px 12px 8px 12px;
+  font-size: 20px;
+}
+
+#search {
+  font-size: 20px;
+  padding-left: 12px;
+}
+
+#tag_name_error {
+  font-size: 16px;
+  color: red;
+}

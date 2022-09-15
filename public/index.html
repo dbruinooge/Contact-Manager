@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Manager</title>
+  <link rel="stylesheet" href="/stylesheets/contacts.css">
+  <script src="/javascripts/handlebars.js"></script>
+  <script type="module" src="/javascripts/contact_manager.js" defer></script>
+</head>
+<body>
+  <div id="wrapper">
+    <header id="main_header">
+      <h1>Contact Manager</h1>
+    </header>
+
+    <main>
+      <div id="contacts_view" class="show">
+        <header>
+          <a href="#" id="add_view_button">Add contact</a>
+          <input type="text" size="30" id="search" placeholder="Search"/>
+        </header>
+        <div id="contacts_list"></div>
+      </div>
+
+      <div id="add_contact_view" class="contact_form_view hide">
+        <div class="contact_form_box">
+          <h2>Create Contact</h2>
+          <form id="add_form" class="contact_form">
+            <label>
+              Full name:
+              <input type="text" size="40" maxlength="40" name="full_name" id="add_full_name" pattern="^[a-zA-Z'\s]+$" required/>
+            </label>
+            <label>
+              Phone number:
+              <input type="text" size="40" name="phone_number" placeholder="###-###-####" pattern="^\d{3}-\d{3}-\d{4}$"/>
+            </label>
+            <label>
+              Email address:
+              <input type="email" size="40" maxlength="40" name="email"/>
+            </label>
+            <fieldset class="tag_checkboxes"></fieldset>
+            <a href="#" class="add_new_tag">Add new tag</a>
+            <div class="button_wrapper">
+              <button id="submit_add" type="submit">Submit</button>
+              <button class="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="edit_contact_view" class="contact_form_view hide">
+        <div class="contact_form_box">
+          <h2>Edit Contact</h2>
+          <form id="edit_form" class="contact_form">
+            <input type="hidden" name="id"/>
+            <label>
+              Full name:
+              <input type="text" size="40" maxlength="35" name="full_name" id="edit_full_name" pattern="^[a-zA-Z'\s]+$"/ required>
+            </label>
+            <label>
+              Phone number:
+              <input type="text" size="40" name="phone_number" placeholder="###-###-####" pattern="^\d{3}-\d{3}-\d{4}$"/>
+            </label>
+            <label>
+              Email address:
+              <input type="email" size="40" maxlength="40" name="email"/>
+            </label>
+            <fieldset class="tag_checkboxes"></fieldset>
+            <a href="#" class="add_new_tag">Add new tag</a>
+            <div class="button_wrapper">
+              <button type="submit" id="submit_edit">Submit</button>
+              <button class="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="modal_background" class="hide">
+    <div id="modal_wrapper">
+      <div id="modal">
+        <form id="new_tag_form">
+          <p>Enter a name for the new tag:</p>
+          <input type="text" id="new_tag_input" size="25" maxlength="25"/>
+          <div id="tag_name_error"></div>
+          <div class="button_wrapper">
+            <button type="submit" id="submit_new_tag">Add tag</button>
+            <button id="cancel_new_tag">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/x-handlebars-template" id="contact_template">
+    {{#each contacts}}
+    <div data-id="{{id}}" class="contact_item">
+      <h3>{{full_name}}</h3>
+      <p class="contact_item_heading">Email:</p>
+      <p>{{email}}</p>
+      <p class="contact_item_heading">Phone Number:</p>
+      <p>{{phone_number}}</p>
+      <p class="contact_item_heading">Tags:</p>
+      <p class='tags'>
+        {{#if tags}}
+          {{#eachTag tags}}
+          <a href="#" class="tag">#{{this}}</a>
+          {{/eachTag}}
+        {{else}}
+          None
+        {{/if}}
+      </p>
+      <a href="#" class="edit">Edit</a>
+      <a href="#" class="delete">Delete</a>
+    </div>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars-template" id="tags_template">
+    <legend>Tags:</legend>
+    {{#each tags}}
+      <div class="tag_wrapper">
+        <label>
+          <input type="checkbox" name="{{this}}"/>
+          {{this}}
+        </label>
+      </div>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars-template" id="tag_template">
+    <div class="tag_wrapper">
+      <label>
+        <input type="checkbox" name="{{this}}" checked/>
+        {{this}}
+      </label>
+    </div>
+  </script>
+</body>
+</html>
+
